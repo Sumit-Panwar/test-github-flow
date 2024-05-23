@@ -7,10 +7,18 @@ on:
         description: 'Environment to release to'
         required: true
         default: 'staging' # Default value, change as needed
+        options:
+          - 'staging'
+          - 'prod'
+          - 'mock'
       branch:
         description: 'Branch to release from'
         required: true
         default: 'main' # Default value, change as needed
+        options:
+          - 'main'
+          - 'master'
+          - 'release/prod'
 
 jobs:
   release:
