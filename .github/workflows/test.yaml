@@ -7,7 +7,6 @@ on:
         description: 'Environment to release to'
         required: true
         default: 'staging' # Default value, change as needed
-        type: choice
         options:
           - 'staging'
           - 'prod'
@@ -16,7 +15,7 @@ on:
         description: 'Branch to release from'
         required: true
         default: 'main' # Default value, change as needed
-        type: choice
+        #type: choice
         options:
           - 'main'
           - 'master'
