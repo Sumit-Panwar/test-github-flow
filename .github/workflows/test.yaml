@@ -1,0 +1,37 @@
+name: Release to Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to release to'
+        required: true
+        default: 'staging' # Default value, change as needed
+      branch:
+        description: 'Branch to release from'
+        required: true
+        default: 'main' # Default value, change as needed
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Determine Environment
+        id: determine_environment
+        run: echo "::set-output name=environment::${{ github.event.inputs.environment }}"
+
+      - name: Determine Branch
+        id: determine_branch
+        run: echo "::set-output name=branch::${{ github.event.inputs.branch }}"
+
+      - name: Deploy to Environment
+        run: |
+          environment="${{ steps.determine_environment.outputs.environment }}"
+          branch="${{ steps.determine_branch.outputs.branch }}"
+          
+          echo "Deploying to $environment environment from $branch branch..."
+          # Add your deployment commands here
