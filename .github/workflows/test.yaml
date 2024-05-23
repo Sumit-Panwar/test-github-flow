@@ -23,11 +23,11 @@ jobs:
       - name: Determine Environment
         id: determine_environment
         #run: echo "::set-output name=environment::${{ github.event.inputs.environment }}"
-        run: echo ${{ inputs.environment}} >> $GITHUB_OUTPUT
+        run: echo "${{ inputs.environment}}" >> $GITHUB_OUTPUT
 
       - name: Determine Branch
         id: determine_branch
-        run: echo ${{ inputs.branch}} >> $GITHUB_OUTPUT
+        run: echo "${{ inputs.branch}}" >> $GITHUB_OUTPUT
 
       - name: Deploy to Environment
         run: |
