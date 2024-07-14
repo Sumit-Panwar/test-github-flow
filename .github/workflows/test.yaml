@@ -40,9 +40,7 @@ jobs:
         run: echo "branch=${{ inputs.branch}}" >> $GITHUB_OUTPUT
 
       - name: Deploy to Environment
-        run: |
-          environment="${{ steps.determine_environment.outputs.environment }}"
-          branch="${{ steps.determine_branch.outputs.branch }}"
-          
-          echo "Deploying to $environment environment from $branch branch..."
-          ls -ltra
+        uses: ./.github/workflows/reusable-flow.yaml
+        with:
+          environment: ${{ inputs.environment}}
+          branch: ${{ inputs.branch}}

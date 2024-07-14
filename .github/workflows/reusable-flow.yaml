@@ -1,0 +1,30 @@
+name: Reusable flow
+
+on: 
+    workflow_call:
+      inputs:
+        environment:
+         type: string
+         required: true
+        branch:
+          type: string
+          required: true
+
+
+
+jobs:
+    test-deploy-using-reusable-flow:
+      runs-on: ubuntu-latest
+      steps:
+        - name: 'Deploy the job'
+          
+          run: |
+            #environment="${{ steps.determine_environment.outputs.environment }}"
+            #branch="${{ steps.determine_branch.outputs.branch }}"
+            #environment="${{ inputs.environment }}"
+            #branch="${{ inputs.branch }}"
+          
+            echo "Deploying to $environment environment from $branch branch..."
+            ls -ltra
+
+
