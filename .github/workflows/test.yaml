@@ -5,6 +5,7 @@ on:
     inputs:
       environment:
         description: 'Environment to release to'
+        type: choice
         required: true
         default: 'staging' # Default value, change as needed
         options:
@@ -15,7 +16,7 @@ on:
         description: 'Branch to release from'
         required: true
         default: 'main' # Default value, change as needed
-        #type: choice
+        type: choice
         options:
           - 'main'
           - 'master'
