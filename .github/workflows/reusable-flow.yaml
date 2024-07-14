@@ -1,5 +1,3 @@
-name: Reusable flow
-
 on: 
     workflow_call:
       inputs:
